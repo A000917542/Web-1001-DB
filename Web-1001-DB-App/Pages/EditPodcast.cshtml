@@ -1,0 +1,23 @@
+﻿@page
+@model Web_1001_DB_App.Pages.EditPodcastModel
+@{
+}
+
+<form method="post">
+    <input type="hidden" value="@Model.podcast.Id" />
+    <div>
+        <label asp-for="podcast.Name"></label>
+        <input asp-for="podcast.Name" />
+    </div>
+    <div>
+        <label asp-for="podcast.Url"></label>
+        <input asp-for="podcast.Url" />
+    </div>
+    <div>
+        <label asp-for="podcast.Description"></label>
+        <input asp-for="podcast.Description" />
+    </div>
+    <div>
+        <input type="submit" value="Add Podcast" />
+    </div>
+</form>

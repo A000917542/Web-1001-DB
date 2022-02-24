@@ -1,10 +1,28 @@
 ﻿@page
+@using Web_1001_DB_Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<p>There are @ViewData["NumPodcasts"] podcasts available.</p>
+
+<ul>
+@foreach (Podcast item in Model.Podcasts)
+{
+    <li><div>
+        <a href="@item.Url" target="_blank">@item.Name</a> <a asp-page="EditPodcast" asp-route-Id="@item.Id">Edit</a>
+        <p>@item.Description</p>
+    </div></li>
+}
+</ul>
+
+@section Scripts
+{
+
+}
+
+@section NewSection
+{
+
+}

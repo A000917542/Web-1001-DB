@@ -30,7 +30,6 @@ namespace Web_1001_DB_App
                 builder.UseSqlServer("Name=ConnectionStrings:PodcastDb-localdb", b => b.MigrationsAssembly("Web-1001-DB-LocalDb-Migrations"));
             });
 
-
             services.AddRazorPages();
         }
 
