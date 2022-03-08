@@ -11,5 +11,6 @@ namespace Web_1001_DB_Context
         { }
 
         public DbSet<Podcast> Podcasts { get; set; }
+        public DbSet<PodcastEpisode> Episodes { get; set; }
     }
 }

@@ -14,7 +14,8 @@
     </div>
     <div>
         <label asp-for="podcast.Description"></label>
-        <input asp-for="podcast.Description" />
+        @*<input asp-for="podcast.Description" />*@
+        @Html.EditorFor(m => m.podcast.Description, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
     </div>
     <div>
         <input type="submit" value="Add Podcast" />

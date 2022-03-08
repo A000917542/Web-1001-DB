@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_1001_DB_Context;
 
 namespace Web_1001_DB_LocalDb_Migrations.Migrations
 {
     [DbContext(typeof(PodcastContext))]
-    partial class PodcastContextModelSnapshot : ModelSnapshot
+    [Migration("20220308232018_Added Podcast Episodes - Added Constraints")]
+    partial class AddedPodcastEpisodesAddedConstraints
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

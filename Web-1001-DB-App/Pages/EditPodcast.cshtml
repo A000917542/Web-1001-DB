@@ -4,7 +4,7 @@
 }
 
 <form method="post">
-    <input type="hidden" value="@Model.podcast.Id" />
+    <input asp-for="podcast.Id" />
     <div>
         <label asp-for="podcast.Name"></label>
         <input asp-for="podcast.Name" />
@@ -15,7 +15,8 @@
     </div>
     <div>
         <label asp-for="podcast.Description"></label>
-        <input asp-for="podcast.Description" />
+        @* <input asp-for="podcast.Description" /> *@
+        @Html.EditorFor(m => m.podcast.Description, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
     </div>
     <div>
         <input type="submit" value="Add Podcast" />
