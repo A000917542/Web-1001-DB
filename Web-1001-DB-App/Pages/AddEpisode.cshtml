@@ -1,0 +1,45 @@
+﻿@page
+@model Web_1001_DB_App.Pages.AddEpisodeModel
+@{
+}
+
+<form method="post">
+    <div class="text-danger" asp-validation-summary=All></div>
+    <div>
+        <span class="text-danger" asp-validation-for="episode.PodcastId"></span>
+        <label asp-for="episode.PodcastId"></label>
+        @*<input asp-for="episode.PodcastId" />*@
+        <select asp-for="episode.PodcastId" asp-items="Model.PodcastList">
+            <option value="">--- Pick a Podcast --</option>
+        </select>
+    </div>
+    <div>
+        <span class="text-danger" asp-validation-for="episode.Name"></span>
+        <label asp-for="episode.Name"></label>
+        <input asp-for="episode.Name" />
+    </div>
+    <div>
+        <span class="text-danger" asp-validation-for="episode.Url"></span>
+        <label asp-for="episode.Url"></label>
+        <input asp-for="episode.Url" />
+    </div>
+    <div>
+        <span class="text-danger" asp-validation-for="episode.Duration"></span>
+        <label asp-for="episode.Duration"></label>
+        <input asp-for="episode.Duration" />
+    </div>
+    <div>
+        <span class="text-danger" asp-validation-for="episode.ShowNotes"></span>
+        <label asp-for="episode.ShowNotes"></label>
+        @*<input asp-for="podcast.Description" />*@
+        @Html.EditorFor(m => m.episode.ShowNotes, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
+    </div>
+    <div>
+        <input type="submit" value="Add Podcast" />
+    </div>
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

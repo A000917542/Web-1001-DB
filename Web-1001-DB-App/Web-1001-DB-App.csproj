@@ -25,4 +25,8 @@
     <ProjectReference Include="..\Web-1001-DB-Sqlite-Migrations\Web-1001-DB-Sqlite-Migrations.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Episode\" />
+  </ItemGroup>
+
 </Project>

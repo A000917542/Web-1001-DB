@@ -1,7 +1,6 @@
 ﻿@page
 @model Web_1001_DB_App.Pages.EditPodcastModel
-@{
-}
+
 
 <form method="post">
     <input asp-for="podcast.Id" />
@@ -22,3 +21,46 @@
         <input type="submit" value="Add Podcast" />
     </div>
 </form>
+<section>
+    <ul>
+        @foreach(var ep in Model.Episodes)
+        {
+            var mins = (ep.Duration / 60);
+            <li><a href="@ep.Url" target="_blank">@ep.Name (approx. @mins mins.)</a></li>
+        }
+    </ul>
+
+</section>
+<section>
+    <h3>Add Episode</h3>
+    <form method="post" asp-page="AddEpisode">
+        <input type="hidden" asp-for="episode.PodcastId" value="@Model.podcast.Id" />
+    @*<div>
+        <label asp-for="episode.PodcastId"></label>
+        <input asp-for="episode.PodcastId" />
+        <select asp-for="episode.PodcastId" asp-items="Model.PodcastList">
+            <option value="">--- Pick a Podcast --</option>
+        </select>
+    </div>*@
+    <div>
+        <label asp-for="episode.Name"></label>
+        <input asp-for="episode.Name" />
+    </div>
+    <div>
+        <label asp-for="episode.Url"></label>
+        <input asp-for="episode.Url" />
+    </div>
+    <div>
+        <label asp-for="episode.Duration"></label>
+        <input asp-for="episode.Duration" />
+    </div>
+    <div>
+        <label asp-for="episode.ShowNotes"></label>
+        @*<input asp-for="podcast.Description" />*@
+        @Html.EditorFor(m => m.episode.ShowNotes, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
+    </div>
+    <div>
+        <input type="submit" value="Add Podcast" />
+    </div>
+</form>
+</section>

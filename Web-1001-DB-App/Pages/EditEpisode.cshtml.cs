@@ -5,28 +5,25 @@ using Web_1001_DB_Models;
 
 namespace Web_1001_DB_App.Pages
 {
-    public class AddPodcastModel : PageModel
+    public class EditEpisodeModel : PageModel
     {
         private readonly PodcastContext _db;
 
         [FromForm]
-        public Podcast podcast { get; set; }
+        public PodcastEpisode episode { get; set; }
 
-        
-
-        public AddPodcastModel(PodcastContext db)
+        public EditEpisodeModel(PodcastContext ctx)
         {
-            _db = db;
+            _db = ctx;
         }
 
         public void OnGet()
         {
-
         }
 
         public void OnPost()
         {
-            _db.Add<Podcast>(podcast);
+            _db.Add<PodcastEpisode>(episode);
             _db.SaveChangesAsync();
         }
     }

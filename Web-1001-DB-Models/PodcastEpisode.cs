@@ -27,9 +27,11 @@ namespace Web_1001_DB_Models
         public long Duration { get; set; }
 
         [DataType(DataType.MultilineText)]
+        [Display(Name = "Show Notes")]
         public string ShowNotes { get; set; }
 
         [ForeignKey("Podcast")]
+        [Display(Name = "Podcast")]
         public int PodcastId { get; set; }
 
         public Podcast Podcast { get; set; }
